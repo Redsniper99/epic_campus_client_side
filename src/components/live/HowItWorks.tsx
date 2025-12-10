@@ -46,32 +46,32 @@ const HowItWorks = () => {
 
                 {/* Steps */}
                 <div className="max-w-5xl mx-auto">
-                    <div className="grid md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         {steps.map((step, index) => (
                             <div key={index} className="relative text-center group">
                                 {/* Connector line */}
                                 {index < steps.length - 1 && (
-                                    <div className="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-border" />
+                                    <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-border" />
                                 )}
 
                                 {/* Icon */}
-                                <div className="relative z-10 mx-auto w-32 h-32 rounded-2xl bg-card border border-border shadow-epic-sm flex items-center justify-center mb-6 group-hover:shadow-epic-md group-hover:border-accent/50 transition-all">
-                                    <step.icon className="w-12 h-12 text-accent" />
-                                    <span className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
+                                <div className="relative z-10 mx-auto w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl sm:rounded-2xl bg-card border border-border shadow-epic-sm flex items-center justify-center mb-4 md:mb-6 group-hover:shadow-epic-md group-hover:border-accent/50 transition-all">
+                                    <step.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-accent" />
+                                    <span className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-primary-foreground text-xs sm:text-sm font-bold flex items-center justify-center">
                                         {step.step}
                                     </span>
                                 </div>
 
                                 {/* Content */}
-                                <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                                <p className="text-muted-foreground text-sm">{step.description}</p>
+                                <h3 className="text-sm sm:text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">{step.title}</h3>
+                                <p className="text-muted-foreground text-xs sm:text-sm hidden sm:block">{step.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Features */}
-                <div className="mt-16 max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+                <div className="mt-12 md:mt-16 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
                     {[
                         { title: "HD Video Quality", desc: "Crystal clear video & audio" },
                         { title: "Screen Sharing", desc: "See instructor's materials" },

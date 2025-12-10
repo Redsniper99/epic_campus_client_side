@@ -121,42 +121,43 @@ export default function LiveClassPage() {
                             />
 
                             {/* Screen share overlay with content */}
-                            <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center">
-                                <div className="text-center max-w-2xl p-8">
-                                    <h2 className="text-4xl font-bold text-white mb-6">動詞の活用</h2>
-                                    <p className="text-2xl text-gray-300 mb-4">Verb Conjugation (ます Form)</p>
+                            <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center p-2 sm:p-4">
+                                <div className="text-center max-w-2xl">
+                                    <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-6">動詞の活用</h2>
+                                    <p className="text-sm sm:text-xl md:text-2xl text-gray-300 mb-2 sm:mb-4">Verb Conjugation (ます Form)</p>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mt-8">
-                                        <div className="bg-gray-800 p-4 rounded-xl">
-                                            <p className="text-accent text-xl font-bold mb-2">食べる → 食べます</p>
-                                            <p className="text-gray-400">taberu → tabemasu (to eat)</p>
+                                    <div className="grid grid-cols-2 gap-2 sm:gap-4 text-left mt-4 sm:mt-8">
+                                        <div className="bg-gray-800 p-2 sm:p-4 rounded-lg sm:rounded-xl">
+                                            <p className="text-accent text-sm sm:text-xl font-bold mb-1 sm:mb-2">食べる → 食べます</p>
+                                            <p className="text-gray-400 text-xs sm:text-base">taberu → tabemasu</p>
                                         </div>
-                                        <div className="bg-gray-800 p-4 rounded-xl">
-                                            <p className="text-accent text-xl font-bold mb-2">飲む → 飲みます</p>
-                                            <p className="text-gray-400">nomu → nomimasu (to drink)</p>
+                                        <div className="bg-gray-800 p-2 sm:p-4 rounded-lg sm:rounded-xl">
+                                            <p className="text-accent text-sm sm:text-xl font-bold mb-1 sm:mb-2">飲む → 飲みます</p>
+                                            <p className="text-gray-400 text-xs sm:text-base">nomu → nomimasu</p>
                                         </div>
-                                        <div className="bg-gray-800 p-4 rounded-xl">
-                                            <p className="text-accent text-xl font-bold mb-2">行く → 行きます</p>
-                                            <p className="text-gray-400">iku → ikimasu (to go)</p>
+                                        <div className="bg-gray-800 p-2 sm:p-4 rounded-lg sm:rounded-xl">
+                                            <p className="text-accent text-sm sm:text-xl font-bold mb-1 sm:mb-2">行く → 行きます</p>
+                                            <p className="text-gray-400 text-xs sm:text-base">iku → ikimasu</p>
                                         </div>
-                                        <div className="bg-gray-800 p-4 rounded-xl">
-                                            <p className="text-accent text-xl font-bold mb-2">見る → 見ます</p>
-                                            <p className="text-gray-400">miru → mimasu (to see)</p>
+                                        <div className="bg-gray-800 p-2 sm:p-4 rounded-lg sm:rounded-xl">
+                                            <p className="text-accent text-sm sm:text-xl font-bold mb-1 sm:mb-2">見る → 見ます</p>
+                                            <p className="text-gray-400 text-xs sm:text-base">miru → mimasu</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Instructor PIP */}
-                            <div className="absolute bottom-4 right-4 w-48 h-36 rounded-lg overflow-hidden bg-gray-800 border-2 border-primary">
+                            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-24 h-18 sm:w-36 sm:h-28 md:w-48 md:h-36 rounded-lg overflow-hidden bg-gray-800 border-2 border-primary">
                                 <img
                                     src={classInfo.instructorImage}
                                     alt={classInfo.instructor}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute bottom-2 left-2 bg-black/60 px-2 py-1 rounded text-xs text-white flex items-center gap-1">
-                                    <span className="w-2 h-2 rounded-full bg-green-500" />
-                                    {classInfo.instructor}
+                                <div className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 bg-black/60 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs text-white flex items-center gap-1">
+                                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500" />
+                                    <span className="hidden sm:inline">{classInfo.instructor}</span>
+                                    <span className="sm:hidden">Sensei</span>
                                 </div>
                             </div>
 
@@ -168,37 +169,37 @@ export default function LiveClassPage() {
                         </div>
 
                         {/* Participant thumbnails */}
-                        <div className="flex gap-3 overflow-x-auto pb-2">
+                        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2">
                             {participants.slice(0, 5).map((participant, index) => (
                                 <div
                                     key={index}
-                                    className={`relative w-32 h-24 rounded-lg overflow-hidden flex-shrink-0 ${participant.name === "You" ? "ring-2 ring-primary" : "bg-gray-800"
+                                    className={`relative w-20 h-16 sm:w-32 sm:h-24 rounded-lg overflow-hidden flex-shrink-0 ${participant.name === "You" ? "ring-2 ring-primary" : "bg-gray-800"
                                         }`}
                                 >
                                     {participant.isVideoOn ? (
                                         <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                                            <span className="text-2xl font-bold text-gray-400">{participant.avatar}</span>
+                                            <span className="text-lg sm:text-2xl font-bold text-gray-400">{participant.avatar}</span>
                                         </div>
                                     ) : (
                                         <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                                            <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center">
-                                                <span className="text-lg font-bold text-gray-400">{participant.avatar[0]}</span>
+                                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-700 flex items-center justify-center">
+                                                <span className="text-sm sm:text-lg font-bold text-gray-400">{participant.avatar[0]}</span>
                                             </div>
                                         </div>
                                     )}
-                                    <div className="absolute bottom-1 left-1 right-1 flex items-center justify-between">
-                                        <span className="text-xs text-white bg-black/60 px-1.5 py-0.5 rounded truncate">
+                                    <div className="absolute bottom-0.5 left-0.5 right-0.5 sm:bottom-1 sm:left-1 sm:right-1 flex items-center justify-between">
+                                        <span className="text-[10px] sm:text-xs text-white bg-black/60 px-1 sm:px-1.5 py-0.5 rounded truncate">
                                             {participant.name}
                                         </span>
                                         {participant.isMuted && (
-                                            <MicOff className="w-3 h-3 text-red-400 bg-black/60 rounded p-0.5" />
+                                            <MicOff className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-400 bg-black/60 rounded p-0.5" />
                                         )}
                                     </div>
                                 </div>
                             ))}
                             {participants.length > 5 && (
-                                <div className="w-32 h-24 rounded-lg bg-gray-800 flex items-center justify-center flex-shrink-0">
-                                    <span className="text-gray-400 text-sm">+{participants.length - 5} more</span>
+                                <div className="w-20 h-16 sm:w-32 sm:h-24 rounded-lg bg-gray-800 flex items-center justify-center flex-shrink-0">
+                                    <span className="text-gray-400 text-xs sm:text-sm">+{participants.length - 5}</span>
                                 </div>
                             )}
                         </div>
